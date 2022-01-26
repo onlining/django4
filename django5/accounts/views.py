@@ -9,7 +9,7 @@ from .models import User
 
 def signup(request):
     if request.method == 'GET':
-        return render(request, 'accounts/signup.html')
+        return render(request, 'signup.html')
     
     elif request.method == 'POST':
         user_id=request.POST.get('id','')
@@ -27,7 +27,7 @@ def signup(request):
                 user_id=user_id,
                 user_pw=user_pw,
                 user_name=user_name,
-                user_email=user.email
+                user_email=user_email
             )
             user.save()
         return redirect('/login')
