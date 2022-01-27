@@ -8,16 +8,17 @@
 {%block content %}
     {%include 'partials/navbar.html' %}
     <h1>로그인</h1>
-    <form method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
-        아이디:
-        <br>
-        <input name="username" type="text">
-        <br>
-        비밀번호:
-        <br>
-        <input name="password" type="password">
-        <br><br>
+        {% for form in forms %}
+        <div>
+            <label for="{{ form.id_for_label}}">{{ form.label }}</label>
+            {{ form }}
+        </div>
+        {% endfor %}
+        {if error %}
+        {{error}}
+        { % endif %}
         <input type="submit" class="btn btn-primary" value="Login">
     </form>
 
