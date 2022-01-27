@@ -9,25 +9,7 @@
     {%include 'partials/navbar.html' %}
     <form method="POST">
             {% csrf_token %}
-            <div>
-            <a for="id" >아이디:</a><br>
-            <input name="id" id="id" type="text" placeholder="아이디를 입력하세요">
-            </div>
-            <div>
-            <a for="pw" >비밀번호:</a><br>
-            <input name="pw" id="pw" type="password" placeholder="비밀번호를 입력하세요">
-            </div>
-            <div>
-            <a for="pw-confirm" >비밀번호 확인</a><br>
-            <input name="pw-confirm" id="pw-confirm" type="password" placeholder="비밀번호를 한번더 입력하세요">
-            </div>
-            <div>
-            <a for="name">이름</a><br>
-            <input name="name" id="name" type="text" placeholder="이름을 입력하세요">
-            </div>
-            <div>
-            <a for="email">이메일</a><br>
-            <input name="email" id="email" type="email" placeholder="이메일을 입력하세요">
+            <div><label for="{{ form.id_for_label}}">{{ form.label }}</label>{{ form }}
             </div>
             <input type="submit" value="Sign Up">
     </form>
