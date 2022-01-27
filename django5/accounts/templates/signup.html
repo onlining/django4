@@ -7,10 +7,19 @@
     {% endblock others %}
 {%block content %}
     {%include 'partials/navbar.html' %}
-    <form method="POST">
+    <form action="" method="POST">
             {% csrf_token %}
-            <div><label for="{{ form.id_for_label}}">{{ form.label }}</label>{{ form }}
+
+            {% for form in forms  %}
+            <div>
+                <label for="{{ form.id_for_label}}">{{ form.label }}</label>
+                    {{ form }}
             </div>
+            {% endfor %}
+            {% if error %}
+            {{errors}}
+            {% endif %}
+            {}
             <input type="submit" value="Sign Up">
     </form>
 
