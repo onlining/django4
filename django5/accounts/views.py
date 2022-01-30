@@ -2,8 +2,7 @@ from django.shortcuts import render,redirect
 from argon2 import PasswordHasher
 from .models import User
 from django.db import transaction
-from .forms import RegisterForm, Loginform
-
+from .forms import RegisterForm, LoginForm
 
 def signup(request):
     register_form=RegisterForm()
@@ -49,3 +48,4 @@ def login(request):
                 for value in loginform.errors.values():
                     context['error']=value
         return render(request, '/login.html',context)
+
